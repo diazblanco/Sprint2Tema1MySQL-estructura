@@ -208,6 +208,7 @@ CREATE TABLE IF NOT EXISTS `pizzeria`.`pedido` (
   `cliente_id` INT(4) UNSIGNED NOT NULL,
   `tienda_id` INT(4) UNSIGNED NOT NULL,
   `empleado_id` INT UNSIGNED NOT NULL,
+  `precioTotal` FLOAT NOT NULL,
   PRIMARY KEY (`id_pedido`, `cliente_id`, `tienda_id`, `empleado_id`),
   INDEX `fk_pedido_pedido_burguer1_idx` (`pedido_burguer_id_pedido_burguer` ASC),
   INDEX `fk_pedido_pedido_pizza1_idx` (`pedido_pizza_id_pedido_pizza` ASC),
@@ -316,9 +317,9 @@ INSERT INTO empleado (nombre, nif, telefono, tipo, tienda_id) VALUE ('Maria', '6
 INSERT INTO empleado (nombre, nif, telefono, tipo, tienda_id) VALUE ('Marc', '98653456C', '675432123', 'cocinero', 1);
 
 /*Datos tabal pedido*/
-INSERT INTO pedido (fecha_pedido, tipo_pedido, pedido_pizza_id_pedido_pizza, pedido_bebida_id_pedido_bebida, cliente_id, tienda_id, empleado_id) VALUE ('2022-04-03 21:34:12','recogida',1,1,1,1,1);
-INSERT INTO pedido (fecha_pedido, tipo_pedido, pedido_burguer_id_pedido_burguer, pedido_bebida_id_pedido_bebida, cliente_id, tienda_id, empleado_id) VALUE ('2022-04-03 22:05:09','recogida',1,2,2,1,1);
-INSERT INTO pedido (fecha_pedido, tipo_pedido, pedido_pizza_id_pedido_pizza, pedido_bebida_id_pedido_bebida, cliente_id, tienda_id, empleado_id) VALUE ('2022-04-04 22:34:09','recogida',2,3,3,1,1);
+INSERT INTO pedido (fecha_pedido, tipo_pedido, pedido_pizza_id_pedido_pizza, pedido_bebida_id_pedido_bebida, cliente_id, tienda_id, empleado_id, precioTotal) VALUE ('2022-04-03 21:34:12','recogida',1,1,1,1,1,0.0);
+INSERT INTO pedido (fecha_pedido, tipo_pedido, pedido_burguer_id_pedido_burguer, pedido_bebida_id_pedido_bebida, cliente_id, tienda_id, empleado_id, precioTotal) VALUE ('2022-04-03 22:05:09','recogida',1,2,2,1,1,0.0);
+INSERT INTO pedido (fecha_pedido, tipo_pedido, pedido_pizza_id_pedido_pizza, pedido_bebida_id_pedido_bebida, cliente_id, tienda_id, empleado_id, precioTotal) VALUE ('2022-04-04 22:34:09','recogida',2,3,3,1,1,0.0);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
